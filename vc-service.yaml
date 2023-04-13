@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: vcluster-demo
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vcluster-loadbalancer
+  namespace: vcluster-demo
+spec:
+  selector:
+    app: vcluster
+    release: vcluster-demo
+  ports:
+    - name: https
+      port: 443
+      targetPort: 8443
+      protocol: TCP
+  type: LoadBalancer
