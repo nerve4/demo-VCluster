@@ -1,0 +1,5 @@
+syncer:
+  extraArgs:
+  - --tls-san=<YOUR EXTERNAL IP>
+storage:
+  persistence: false
